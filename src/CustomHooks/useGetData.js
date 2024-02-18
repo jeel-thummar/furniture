@@ -11,10 +11,10 @@ function useGetData(collectionName) {
   useEffect(() => {
     const fetchData = async () => {
         try {
-            console.log('Fetching data from Firestore...');
+            // console.log('Fetching data from Firestore...');
             const querySnapshot = await getDocs(collectionRef);
             const newData = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-            console.log('Fetched data:', newData);
+            // console.log('Fetched data:', newData);
             setData(newData);
           } catch (error) {
             console.error('Error fetching data:', error);

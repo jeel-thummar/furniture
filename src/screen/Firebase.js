@@ -1,14 +1,13 @@
 import {initializeApp} from 'firebase/app'
  
 const firebaseConfig = {
-    apiKey: "AIzaSyBu23kOj4foJYUESEhTdW6X42xg0e2RosA",
-    authDomain: "furniture-39c70.firebaseapp.com",
-    projectId: "furniture-39c70",
-    storageBucket: "furniture-39c70.appspot.com",
-    messagingSenderId: "1072673110727",
-    appId: "1:1072673110727:web:f2e3d3daf02eaec716dce2",
-    measurementId: "G-4JW2GLL6VE"
-  };
-
+  apiKey: "AIzaSyBEnZDoH4uua62nxi20pnM1Jo468ezivZ8",
+  authDomain: "furniture-19236.firebaseapp.com",
+  projectId: "furniture-19236",
+  storageBucket: "furniture-19236.appspot.com",
+  messagingSenderId: "934455055068",
+  appId: "1:934455055068:web:60a119d672b63ac0445a19",
+  measurementId: "G-2V02ERT5RR"
+};
   const App = initializeApp(firebaseConfig)
   export default App;

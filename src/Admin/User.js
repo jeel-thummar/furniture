@@ -1,9 +1,9 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import Images from '../assets/img/imges'
+// import Images from '../assets/img/imges'
 import useGetData from '../CustomHooks/useGetData';
 import App from '../screen/Firebase'
-import {doc, deleteDoc, getFirestore} from 'firebase/firestore'
+import { getAuth, deleteUser as deleteAuthUser } from 'firebase/auth';import {doc, deleteDoc, getFirestore} from 'firebase/firestore'
 
 
 function User() {
@@ -11,11 +11,31 @@ function User() {
 
   const collectionName = 'users';
   const Users = useGetData(collectionName);
+  const auth = getAuth(App);
+
 
   // deleteuser
-  const deleteUser = async id => {
-    await deleteDoc(doc(db, 'users', id))
-  }
+  // const deleteUser = async id => {
+  //   const auth = getAuth(App);
+  //   const deleteAuthUser = deleteAuthUser(App)
+  //   await deleteAuthUser(auth.currentUser);
+  //   await deleteDoc(doc(db, 'users', id))
+  // }
+  const deleteUser = async (id, email) => {
+  
+    try {
+      // Step 1: Delete user from Authentication
+      await deleteAuthUser(auth.currentUser);
+  
+      // Step 2: Delete user's document from Firestore
+      await deleteDoc(doc(db, 'users', id));
+  
+      console.log(`User with email ${email} and id ${id} successfully deleted.`);
+    } catch (error) {
+      console.error('Error deleting user:', error.message);
+    }
+  };
+  
     if (!Users || Users.length === 0) {
       // Data is still loading or empty, you can render a loading state or alternative content
       return (

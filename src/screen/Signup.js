@@ -21,7 +21,7 @@ function Signup() {
   const navigate = useNavigate();
 
   const CreateAccount= async () => {
-		try {
+    try {
 			const res =await createUserWithEmailAndPassword(auth , email, password )
 			const user =res.user;
 			console.log(user);
@@ -35,7 +35,7 @@ function Signup() {
 			navigate('/profile')
 
 		} catch(err){
-			console.log(err);
+			console.error(err);
 		 	alert(err.message)
 		}
 	     

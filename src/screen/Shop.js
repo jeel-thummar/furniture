@@ -1,12 +1,51 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Images from '../assets/img/imges'
 import {Container ,Row , Col} from 'react-bootstrap' 
+import { useNavigate } from 'react-router-dom'
 
 import useGetData from '../CustomHooks/useGetData'
 
+//firebase
+import App from './Firebase';
+import {getAuth} from 'firebase/auth'
+import {useAuthState} from "react-firebase-hooks/auth";
+
+// import {getAuth ,createUserWithEmailAndPassword } from 'firebase/auth'
+import {addDoc , getFirestore ,collection} from 'firebase/firestore'
+
+
 function Shop() {
+	const auth = getAuth(App);
+    const [user] = useAuthState(auth);
+    const db = getFirestore(App)
+	const navigate = useNavigate()
 	const collectionName = 'products';
 	const product = useGetData(collectionName);
+	const [productName, setProductName] = useState('');
+
+    const [productPrise, setProductPrise] = useState('');
+
+    const [productImage, setProductImage] = useState(null);
+
+    
+	const Addtocart= async (products) => {
+		try {
+				
+				await addDoc(collection (db , "Cart"),{
+					productname:products.productprise,
+					productprise: productPrise,
+					productUrl: productImage,
+				})
+				// navigate('')
+				alert('suce')
+	
+			} catch(err){
+				console.error(err);
+				 alert(err.message)
+			}
+			 
+		}
+	
 	if (!product || product.length === 0) {
 		// Data is still loading or empty, you can render a loading state or alternative content
 		return (
@@ -52,8 +91,8 @@ function Shop() {
 							<h3 class="product-title">{items.productname}</h3>
 							<strong class="product-price">{items.productprise}</strong>
 
-							<span class="icon-cross">
-								<img src={Images.cross} class="img-fluid"/>
+							<span class="icon-cross" onClick={Addtocart}>
+								<img src={Images.cross} class="img-fluid" />
 							</span>
 						</a>
 					</div> 

@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { NavLink, useNavigate} from 'react-router-dom'
 import Footer from '../componets/Footer'
+// import Fpass from '../screen/ForgetPass'
 
 //Firebase
 import App from './Firebase';
@@ -28,7 +29,7 @@ function Login() {
   }
   return (
     <>
-    <section class="vh-100">
+    <section class="vh-100" style={{marginTop:50}}>
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-xl-10">
@@ -75,8 +76,8 @@ function Login() {
                     <button class="btn btn-dark btn-lg btn-block" type="button" onClick={loginWithEmailandPassword}>Login</button>
                   </div>
 
-                  <a class="small text-muted" href="#!">Forgot password?</a>
-                  <p class="mb-5 pb-lg-2">Don't have an account? <NavLink to={"/signup"}><a>Register here</a></NavLink></p>
+                  <NavLink to='/fpass'><a class="small text-muted">Forgot password?</a></NavLink>
+                  <p class="mb-5 pb-lg-2">Don't have an account? <NavLink to="/signup"><a>Register here</a></NavLink></p>
                   
                 </form>
 

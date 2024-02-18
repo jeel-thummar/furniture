@@ -3,6 +3,7 @@ import Images from '../assets/img/imges'
 import '../screen/Style.css'
 import Tslider from '../componets/Testimonilslider'
 import Footer from '../componets/Footer'
+import Slider from '../componets/slider'
 
 
 function Home() {

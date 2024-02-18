@@ -1,6 +1,7 @@
 import React from 'react'
 import Images from '../assets/img/imges'
 import '../screen/Style.css'
+import { NavLink } from 'react-router-dom'
 
 function Cart() {
   return (
@@ -99,11 +100,11 @@ function Cart() {
               <div class="row">
                 <div class="col-md-6">
                   <div class="row mb-5">
-                    <div class="col-md-6 mb-3 mb-md-0">
-                      <button class="btn btn-black btn-sm btn-block">Update Cart</button>
-                    </div>
+                    {/* <div class="col-md-6 mb-3 mb-md-0">
+                      <NavLink to={}><button class="btn btn-black btn-sm btn-block">Update Cart</button></NavLink>
+                    </div> */}
                     <div class="col-md-6">
-                      <button class="btn btn-outline-black btn-sm btn-block">Continue Shopping</button>
+                      <NavLink to='/shop'><button class="btn btn-outline-black btn-sm btn-block">Continue Shopping</button></NavLink>
                     </div>
                   </div>
                   <div class="row">
@@ -146,7 +147,7 @@ function Cart() {
         
                       <div class="row">
                         <div class="col-md-12">
-                          <button class="btn btn-black btn-lg py-3 btn-block" onclick="window.location='checkout.html'">Proceed To Checkout</button>
+                        <NavLink to='/checkout'><button class="btn btn-black btn-lg py-3 btn-block">Proceed To Checkout</button></NavLink>
                         </div>
                       </div>
                     </div>

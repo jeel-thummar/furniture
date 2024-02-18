@@ -1,28 +1,30 @@
 import React from 'react'
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import Images from '../assets/img/imges'
-import '../screen/Style.css'
-import TinySlider from "tiny-slider-react";
-import 'tiny-slider/dist/tiny-slider.css';
 
+const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
 
-
-
-
-function Testimonilslider() {
-	const styles = {
-		fontFamily: "sans-serif",
-		textAlign: "center"
-	  };
-	  
-	  const imgStyles = {
-		width: "100%",
-		height: "320px",
-		objectFit: "cover"
-	  };
-	  
-
-
-	  const slider = [
+function slider() {
+    const slider = [
 		{
 			SliderImage : Images.girl1,
 			Slidertesti : "&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;",
@@ -48,31 +50,9 @@ function Testimonilslider() {
 			Position : "CEO, Co-Founder, XYZ Inc."
 		},
 	  ]
-	  const settings = {
-		lazyload: true,
-		nav: false,
-		mouseDrag: true,
-		loop: true,
-		items: 1,
-		gutter: 5,
-		responsive: {
-		  420: {
-			items: 2
-		  }
-		}
-	  };
   return (
-    <>
-    	{/* <!-- Start Testimonial Slider --> */}
-		<div class="testimonial-section">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-7 mx-auto text-center">
-						<h2 class="section-title">Testimonials</h2>
-					</div>
-				</div>
-                <TinySlider settings={settings}>
-				<div class="row justify-content-center">
+<Carousel responsive={responsive}>
+<div class="row justify-content-center">
 					<div class="col-lg-12">
 						<div class="testimonial-slider-wrap text-center">
 
@@ -87,7 +67,7 @@ function Testimonilslider() {
 									<div class="row justify-content-center">
 										<div class="col-lg-8 mx-auto">
 										
-											{slider.map((el ,items) => (
+											{slider.map((items) => (
 												<div class="testimonial-block text-center">
 												<blockquote class="mb-5">
 													<p>{items.Slidertesti}</p>
@@ -95,7 +75,7 @@ function Testimonilslider() {
 
 												<div class="author-info">
 													<div class="author-pic">
-														<img className={`tns-lazy-img`} data-src={el} style={imgStyles} src={items.SliderImage} alt="Maria Jones" class="img-fluid"/>
+														<img src={items.SliderImage} alt="Maria Jones" class="img-fluid"/>
 													</div>
 													<h3 class="font-weight-bold">{items.SliderPName}</h3>
 													<span class="position d-block mb-3">{items.Position}</span>
@@ -115,12 +95,11 @@ function Testimonilslider() {
 						</div>
 					</div>
 				</div>
-				</TinySlider>
-			</div>
-		</div>
-		{/* <!-- End Testimonial Slider --> */}
-    </>
+  {/* <div>Item 2</div>
+  <div>Item 3</div>
+  <div>Item 4</div> */}
+</Carousel>
   )
 }
 
-export default Testimonilslider
+export default slider

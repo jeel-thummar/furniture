@@ -12,7 +12,7 @@ import {getAuth ,updateEmail} from 'firebase/auth'
 import {getDocs , where  ,collection ,query ,getFirestore, updateDoc, doc} from "firebase/firestore"
 import {useAuthState} from "react-firebase-hooks/auth";
 import {getStorage} from 'firebase/storage';
-import {useAuth} from '../../CustomHooks/useAuth';
+// import {useAuth} from '../../CustomHooks/useAuth';
 
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 

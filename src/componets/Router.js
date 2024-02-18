@@ -10,6 +10,7 @@ import Service from '../screen/Service';
 import Blog from '../screen/Blog';
 import Contact from '../screen/Contact';
 import Cart from '../screen/Cart';
+import Checkout from '../screen/Checkout';
 import Thnks from '../screen/Thnks';
 import Login from '../screen/Login';
 import Signup from '../screen/Signup';
@@ -37,6 +38,8 @@ function Router() {
       <Route path='/blog' element={<Blog/>}></Route>
       <Route path='/contact' element={<Contact/>}></Route>
       <Route path='/cart' element={<Cart/>}></Route>
+      <Route path='/checkout' element={<Checkout/>}></Route>
+      
       <Route path='/thanks' element={<Thnks/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
       <Route path='/signup' element={<Signup/>}></Route>
