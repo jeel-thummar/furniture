@@ -43,8 +43,8 @@ function Signup() {
 
 
   return (
-    <>
-      <section class="vh-100">
+  <>
+  <section class="vh-100" style={{marginTop:50}}>
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-xl-10">
@@ -117,9 +117,9 @@ function Signup() {
       </div>
     </div>
   </div>
-    </section>
+  </section>
     <Footer/>
-    </>
+  </>
   )
 }
 
