@@ -49,7 +49,7 @@ function Profile() {
 };
   return (
     <>
-      <section style={{backgroundcolor:"lightblue"}}>
+      <section style={{backgroundcolor:"lightblue", marginTop:50}} >
         <div class="container py-5">
       
           <div class="row">

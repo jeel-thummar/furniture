@@ -1,9 +1,47 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Images from '../assets/img/imges'
 import '../screen/Style.css'
 import { NavLink } from 'react-router-dom'
+import useGetData from '../CustomHooks/useGetData'
+import {  removeFromCart,
+  incrementQuantity,
+  decrementQuantity,
+  clearCart, } from '../Redux/CartSlice'
+import { useDispatch , useSelector} from 'react-redux'
+
 
 function Cart() {
+  const [cartCount, setCartCount] = useState(0);
+  const collectionName = 'cart';
+	const product = useGetData(collectionName);
+  const cartItems = useSelector(state => state.cart.items);
+  const dispatch = useDispatch();
+
+  const handleRemoveFromCart = item => {
+    dispatch(removeFromCart(item));
+  };
+
+  const handleIncrementQuantity = item => {
+    dispatch(incrementQuantity(item));
+  };
+
+  const handleDecrementQuantity = item => {
+    dispatch(decrementQuantity(item));
+  };
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
+  // const incrementCart = () => {
+  //   setCartCount(cartCount + 1);
+  // };
+
+  // const decrementCart = () => {
+  //   if (cartCount > 0) {
+  //     setCartCount(cartCount - 1);
+  //   }
+  // };
+
   return (
     <>
     
@@ -43,55 +81,35 @@ function Cart() {
                           <th class="product-remove">Remove</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
-                          <td class="product-thumbnail">
-                            <img src={Images.product1} alt="Image" class="img-fluid"/>
-                          </td>
-                          <td class="product-name">
-                            <h2 class="h5 text-black">Product 1</h2>
-                          </td>
-                          <td>$49.00</td>
-                          <td>
-                            <div class="input-group mb-3 d-flex align-items-center quantity-container" style={{maxwidth: 120}}>
-                              <div class="input-group-prepend">
-                                <button class="btn btn-outline-black decrease" type="button">&minus;</button>
-                              </div>
-                              <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1"/>
-                              <div class="input-group-append">
-                                <button class="btn btn-outline-black increase" type="button">+</button>
-                              </div>
-                            </div>
-        
-                          </td>
-                          <td>$49.00</td>
-                          <td><a href="#" class="btn btn-black btn-sm">X</a></td>
-                        </tr>
-        
-                        <tr>
-                          <td class="product-thumbnail">
-                            <img src={Images.product2} alt="Image" class="img-fluid"/>
-                          </td>
-                          <td class="product-name">
-                            <h2 class="h5 text-black">Product 2</h2>
-                          </td>
-                          <td>$49.00</td>
-                          <td>
-                            <div class="input-group mb-3 d-flex align-items-center quantity-container" style={{maxwidth: 120}}>
-                              <div class="input-group-prepend">
-                                <button class="btn btn-outline-black decrease" type="button">&minus;</button>
-                              </div>
-                              <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1"/>
-                              <div class="input-group-append">
-                                <button class="btn btn-outline-black increase" type="button">+</button>
-                              </div>
-                            </div>
-        
-                          </td>
-                          <td>$49.00</td>
-                          <td><a href="#" class="btn btn-black btn-sm">X</a></td>
-                        </tr>
-                      </tbody>
+                     {cartItems.map((item)=>(
+                       <tbody key={item.id}>
+                       <tr>
+                         <td class="product-thumbnail">
+                           <img src={item.productUrl} alt="Image" class="img-fluid"/>
+                         </td>
+                         <td class="product-name">
+                           <h2 class="h5 text-black">{item.productname}</h2>
+                         </td>
+                         <td>{item.productprise}</td>
+                         <td>
+                           <div class="input-group mb-3 d-flex align-items-center quantity-container" style={{maxwidth: 120}}>
+                             <div class="input-group-prepend">
+                               <button class="btn btn-outline-black decrease" type="button" onClick={() => handleDecrementQuantity(item)}>&minus;</button>
+                             </div>
+                             <input type="text" class="form-control text-center quantity-amount" value={item.quantity} placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1"/>
+                             <div class="input-group-append">
+                               <button class="btn btn-outline-black increase" type="button" onClick={() => handleIncrementQuantity(item)} >+</button>
+                             </div>
+                           </div>
+       
+                         </td>
+                         <td>{ item.quantity*item.productprise}</td>
+                         <td><a href="#" class="btn btn-black btn-sm" onClick={() => handleRemoveFromCart(item)}>X</a></td>
+                       </tr>
+       
+                     
+                       </tbody>
+                     ))}
                     </table>
                   </div>
                 </form>
