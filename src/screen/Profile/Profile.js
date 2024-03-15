@@ -50,65 +50,65 @@ function Profile() {
   return (
     <>
       <section style={{backgroundcolor:"lightblue", marginTop:50}} >
-        <div class="container py-5">
+        <div className="container py-5">
       
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="card mb-4">
-                <div class="card-body text-center">
+          <div className="row">
+            <div className="col-lg-4">
+              <div className="card mb-4">
+                <div className="card-body text-center">
                   <img src={photoURL} alt="avatar"
-                    class="rounded-circle img-fluid" style={{width: 150}}/>
-                  <h5 class="my-3">{userName}</h5>
+                    className="rounded-circle img-fluid" style={{width: 150}}/>
+                  <h5 className="my-3">{userName}</h5>
                  
                 </div>
               </div>
            
             </div>
-            <div class="col-lg-8">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Full Name</p>
+            <div className="col-lg-8">
+              <div className="card mb-4">
+                <div className="card-body">
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <p className="mb-0">Full Name</p>
                     </div>
-                    <div class="col-sm-9">
-                      <p class="text-muted mb-0">{userName}</p>
-                    </div>
-                  </div>
-                  <hr/>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Email</p>
-                    </div>
-                    <div class="col-sm-9">
-                      <p class="text-muted mb-0">{email}</p>
+                    <div className="col-sm-9">
+                      <p className="text-muted mb-0">{userName}</p>
                     </div>
                   </div>
                   <hr/>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Password</p>
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <p className="mb-0">Email</p>
                     </div>
-                    <div class="col-sm-9">
-                      <p class="text-muted mb-0">{password}</p>
-                    </div>
-                  </div>
-                  <hr/>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Mobile</p>
-                    </div>
-                    <div class="col-sm-9">
-                      <p class="text-muted mb-0">(098) 765-4321</p>
+                    <div className="col-sm-9">
+                      <p className="text-muted mb-0">{email}</p>
                     </div>
                   </div>
                   <hr/>
-                 <div className='d-flex'>
-                 <div class="d-flex justify-content-center mb-2">
-                    <button type="button" class="btn btn-primary" style={{}} ><NavLink to='/edit' style={{color :'white', textDecoration : 'none'}}>Edit Profile</NavLink></button>
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <p className="mb-0">Password</p>
+                    </div>
+                    <div className="col-sm-9">
+                      <p className="text-muted mb-0">{password}</p>
+                    </div>
                   </div>
-                  <div class="d-flex justify-content-center mb-2 ml-20" style={{marginLeft: 10}}>
-                    <button type="button" class="btn btn-primary" onClick={Logout}>Log Out</button>
+                  <hr/>
+                  <div className="row">
+                    <div className="col-sm-3">
+                      <p className="mb-0">Mobile</p>
+                    </div>
+                    <div className="col-sm-9">
+                      <p className="text-muted mb-0">(098) 765-4321</p>
+                    </div>
+                  </div>
+                  <hr/>
+                 <div classNameName='d-flex'>
+                 <div className="d-flex justify-content-center mb-2">
+                    <button type="button" className="btn btn-primary" style={{}} ><NavLink to='/edit' style={{color :'white', textDecoration : 'none'}}>Edit Profile</NavLink></button>
+                  </div>
+                  <div className="d-flex justify-content-center mb-2 ml-20" style={{marginLeft: 10}}>
+                    <button type="button" className="btn btn-primary" onClick={Logout}>Log Out</button>
                   </div>
                  </div>
            

@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import Images from '../assets/img/imges'
 import {Container ,Row , Col, Image} from 'react-bootstrap' 
 import { useNavigate } from 'react-router-dom'
@@ -43,22 +43,42 @@ function Shop() {
 	// 	}
 	//   };
 
+	//getting current user
+	function GetUseruid(){
+		const [uid, setUid] = useState(null)
+		useEffect(()=>{
+			auth.onAuthStateChanged(user=>{
+				if(user){
+					setUid(user.uid)
+				}
+			})
+		},[])
+		return uid;
+	}
+	const uid = GetUseruid()
+
 	const handleAddToCart = async (product) => {
 		// Add to Redux store
-		dispatch(AddtoCart({ ...product, quantity: 1 }));
+		if(uid != null){
+			dispatch(AddtoCart({ ...product, quantity: 1 }));
+
+		}
+		else{
+			navigate('/login')
+		}
 	
 		// Add to Firestore
-		try {
-		  const cartRef = await addDoc(collection(db, 'cart'), {
-			productName: product.productname,
-			productPrice: product.productprise,
-			quantity: 1,
-			// Add more fields as needed
-		  });
-		  console.log('Document written with ID: ', cartRef.id);
-		} catch (error) {
-		  console.error('Error adding to cart:', error);
-		}
+		// try {
+		//   const cartRef = await addDoc(collection(db, 'cart'), {
+		// 	productName: product.productname,
+		// 	productPrice: product.productprise,
+		// 	quantity: 1,
+		// 	// Add more fields as needed
+		//   });
+		//   console.log('Document written with ID: ', cartRef.id);
+		// } catch (error) {
+		//   console.error('Error adding to cart:', error);
+		// }
 	  };
 
 	//   const handleAddToCart = async (items) => {
@@ -99,34 +119,34 @@ function Shop() {
 	  }
   return (
     <>
-	     <div class="hero">
-				<div class="container">
-					<div class="row justify-content-between">
-						<div class="col-lg-5">
-							<div class="intro-excerpt">
+	     <div className="hero">
+				<div className="container">
+					<div className="row justify-content-between">
+						<div className="col-lg-5">
+							<div className="intro-excerpt">
 								<h1>Shop</h1>
 							</div>
 						</div>
-						<div class="col-lg-7">
+						<div className="col-lg-7">
 							
 						</div>
 					</div>
 				</div>
 			</div>
-    	 <div class="untree_co-section product-section before-footer-section">
-		    <div class="container">
-		      	<div class="row"> 
+    	 <div className="untree_co-section product-section before-footer-section">
+		    <div className="container">
+		      	<div className="row"> 
 
 		      		{/* <!-- Start Column 1 --> */}
 					 {product.map((items) => (
-            <div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="#">
-							<img src={items.productUrl} class="img-fluid product-thumbnail"/>
-							<h3 class="product-title">{items.productname}</h3>
-							<strong class="product-price">{items.productprise}</strong>
+            <div className="col-12 col-md-4 col-lg-3 mb-5">
+						<a className="product-item">
+							<img src={items.productUrl} className="img-fluid product-thumbnail"/>
+							<h3 className="product-title">{items.productname}</h3>
+							<strong className="product-price">{items.productprise}</strong>
 
-							<span class="icon-cross" onClick={() => handleAddToCart(items)}>
-								<img src={Images.cross} class="img-fluid" />
+							<span className="icon-cross" onClick={() => handleAddToCart(items)}>
+								<img src={Images.cross} className="img-fluid" />
 							</span>
 						</a>
 					</div> 

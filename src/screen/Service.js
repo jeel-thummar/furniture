@@ -49,19 +49,19 @@ function Service() {
   return (
     <>
 		 <div>
-        	<div class="hero col-sm-12">
-				<div class="container">
-					<div class="row justify-content-between">
-						<div class="col-lg-5">
-							<div class="intro-excerpt">
+        	<div className="hero col-sm-12">
+				<div className="container">
+					<div className="row justify-content-between">
+						<div className="col-lg-5">
+							<div className="intro-excerpt">
 								<h1>Service</h1>
-								<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-								<p><a href="" class="btn btn-secondary me-2">Shop Now</a></p>
+								<p className="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+								<p><a  className="btn btn-secondary me-2">Shop Now</a></p>
 							</div>
 						</div>
-						<div class="col-lg-7">
-							<div class="hero-img-wrap">
-								<img src={Images.couch} class="img-fluid"/>
+						<div className="col-lg-7">
+							<div className="hero-img-wrap">
+								<img src={Images.couch} className="img-fluid"/>
 							</div>
 						</div>
 					</div>
@@ -69,16 +69,16 @@ function Service() {
 			</div>
     </div>
       {/* <!-- Start Why Choose Us Section --> */}
-		<div class="why-choose-section">
-			<div class="container">
+		<div className="why-choose-section">
+			<div className="container">
 				
 				
-				<div class="row my-5">
+				<div className="row my-5">
 					{services.map((items) => (
-            <div class="col-6 col-md-6 col-lg-3 mb-4">
-						<div class="feature">
-							<div class="icon">
-								<img src={items.servicesImage} alt="Image" class="imf-fluid"/>
+            <div className="col-6 col-md-6 col-lg-3 mb-4">
+						<div className="feature">
+							<div className="icon">
+								<img src={items.servicesImage} alt="Image" className="imf-fluid"/>
 							</div>
 							<h3>{items.servicesHeading}</h3>
 							<p>{items.servicesDescripition}</p>
@@ -92,55 +92,55 @@ function Service() {
 		{/* <!-- End Why Choose Us Section --> */}
 
     {/* product section */}
-    <div class="product-section">
-			<div class="container">
-				<div class="row">
+    <div className="product-section">
+			<div className="container">
+				<div className="row">
 
 					{/* <!-- Start Column 1 -->  */}
-					<div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
-						<h2 class="mb-4 section-title">Crafted with excellent material.</h2>
-						<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. </p>
-						<p><a href="shop.html" class="btn">Explore</a></p>
+					<div className="col-md-12 col-lg-3 mb-5 mb-lg-0">
+						<h2 className="mb-4 section-title">Crafted with excellent material.</h2>
+						<p className="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. </p>
+						<p><a  className="btn">Explore</a></p>
 					</div> 
 					{/* <!-- End Column 1 --> */}
 
 					{/* <!-- Start Column 2 --> */}
-					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-						<a class="product-item" href="cart.html">
-							<img src={Images.product1} class="img-fluid product-thumbnail"/>
-							<h3 class="product-title">Nordic Chair</h3>
-							<strong class="product-price">$50.00</strong>
+					<div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+						<a className="product-item">
+							<img src={Images.product1} className="img-fluid product-thumbnail"/>
+							<h3 className="product-title">Nordic Chair</h3>
+							<strong className="product-price">$50.00</strong>
 
-							<span class="icon-cross">
-								<img src={Images.cross} class="img-fluid"/>
+							<span className="icon-cross">
+								<img src={Images.cross} className="img-fluid"/>
 							</span>
 						</a>
 					</div> 
 					{/* <!-- End Column 2 --> */}
 
 					{/* <!-- Start Column 3 --> */}
-					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-						<a class="product-item" href="cart.html">
-							<img src={Images.product2} class="img-fluid product-thumbnail"/>
-							<h3 class="product-title">Kruzo Aero Chair</h3>
-							<strong class="product-price">$78.00</strong>
+					<div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+						<a className="product-item">
+							<img src={Images.product2} className="img-fluid product-thumbnail"/>
+							<h3 className="product-title">Kruzo Aero Chair</h3>
+							<strong className="product-price">$78.00</strong>
 
-							<span class="icon-cross">
-								<img src={Images.cross} class="img-fluid"/>
+							<span className="icon-cross">
+								<img src={Images.cross} className="img-fluid"/>
 							</span>
 						</a>
 					</div>
 					{/* <!-- End Column 3 --> */}
 
 					{/* <!-- Start Column 4 --> */}
-					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-						<a class="product-item" href="cart.html">
-							<img src={Images.product3} class="img-fluid product-thumbnail"/>
-							<h3 class="product-title">Ergonomic Chair</h3>
-							<strong class="product-price">$43.00</strong>
+					<div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+						<a className="product-item">
+							<img src={Images.product3} className="img-fluid product-thumbnail"/>
+							<h3 className="product-title">Ergonomic Chair</h3>
+							<strong className="product-price">$43.00</strong>
 
-							<span class="icon-cross">
-								<img src={Images.cross} class="img-fluid"/>
+							<span className="icon-cross">
+								<img src={Images.cross} className="img-fluid"/>
 							</span>
 						</a>
 					</div>

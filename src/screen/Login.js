@@ -6,7 +6,6 @@ import Footer from '../componets/Footer'
 //Firebase
 import App from './Firebase';
 import {getAuth , signInWithEmailAndPassword } from 'firebase/auth'
-import {addDoc , getFirestore ,collection} from 'firebase/firestore'
 import {useAuthState} from "react-firebase-hooks/auth";
 
 function Login() {
@@ -29,57 +28,57 @@ function Login() {
   }
   return (
   <>
-  <section class="vh-100" style={{marginTop:50}}>
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col col-xl-10">
-          <div class="card">
-            <div class="row g-0">
-              <div class="col-md-6 col-lg-5 d-none d-md-block">
+  <section className="vh-100" style={{marginTop:50}}>
+    <div className="container py-5 h-100">
+      <div className="row d-flex justify-content-center align-items-center h-100">
+        <div className="col col-xl-10">
+          <div className="card">
+            <div className="row g-0">
+              <div className="col-md-6 col-lg-5 d-none d-md-block">
                 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
-                  alt="login form" class="img-fluid"  />
+                  alt="login form" className="img-fluid"  />
               </div>
-              <div class="col-md-6 col-lg-7 d-flex align-items-center">
-                <div class="card-body p-4 p-lg-5 text-black">
+              <div className="col-md-6 col-lg-7 d-flex align-items-center">
+                <div className="card-body p-4 p-lg-5 text-black">
 
                   <form>
 
-                    <div class="d-flex align-items-center mb-3 pb-1">
-                      <i class="fas fa-cubes fa-2x me-3"></i>
-                      <span class="h1 fw-bold mb-0">Logo</span>
+                    <div className="d-flex align-items-center mb-3 pb-1">
+                      <i className="fas fa-cubes fa-2x me-3"></i>
+                      <span className="h1 fw-bold mb-0">Logo</span>
                     </div>
 
-                    <h5 class="fw-normal mb-3 pb-3" style={{letterspacing : 1}}>Sign into your account</h5>
+                    <h5 className="fw-normal mb-3 pb-3" style={{letterspacing : 1}}>Sign into your account</h5>
 
-                    <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example17">Email address</label>
+                    <div className="form-outline mb-4">
+                    <label className="form-label" for="form2Example17">Email address</label>
 
                       <input type="email" 
                       id="form2Example17" 
-                      class="form-control form-control-lg"
+                      className="form-control form-control-lg"
                       placeholder='Enater your mail'
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       />
                     </div>
 
-                    <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example27">Password</label>
+                    <div className="form-outline mb-4">
+                    <label className="form-label" for="form2Example27">Password</label>
 
                       <input type="password" 
                       id="form2Example27" 
-                      class="form-control form-control-lg"
+                      className="form-control form-control-lg"
                       placeholder='Enter password'
                       value={password}
                       onChange={(e) => setPassword(e.target.value)} />
                     </div>
 
-                    <div class="pt-1 mb-4">
-                      <button class="btn btn-dark btn-lg btn-block" type="button" onClick={loginWithEmailandPassword}>Login</button>
+                    <div className="pt-1 mb-4">
+                      <button className="btn btn-dark btn-lg btn-block" type="button" onClick={loginWithEmailandPassword}>Login</button>
                     </div>
 
-                    <NavLink to='/fpass'><a class="small text-muted">Forgot password?</a></NavLink>
-                    <p class="mb-5 pb-lg-2">Don't have an account? <NavLink to="/signup"><a>Register here</a></NavLink></p>
+                    <NavLink to='/fpass'><a className="small text-muted">Forgot password?</a></NavLink>
+                    <p className="mb-5 pb-lg-2">Don't have an account? <NavLink to="/signup"><a>Register here</a></NavLink></p>
                     
                   </form>
 
