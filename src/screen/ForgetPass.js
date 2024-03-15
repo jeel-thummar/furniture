@@ -6,7 +6,8 @@ function ForgetPass() {
   return (
     <>
 {/* <!-- Password Reset 1 - Bootstrap Brain Component --> */}
-<div class="bg-light py-3 py-md-5" style={{marginTop:60}}>
+<div class="bg-light py-3 py-md-5" style={{marginTop:80}}>
+  <h1 className='d-flex justify-content-center'>Forget Password</h1>
   <div class="container">
     <div class="row justify-content-md-center">
       <div class="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6">

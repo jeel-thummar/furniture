@@ -94,7 +94,7 @@ function SliderComponent() {
     <>
     	{/* <!-- Start Testimonial Slider --> */}
 		<div className="testimonial-section">
-			<div className="container">
+			<div className="container" >
 				<div className="row">
 					<div className="col-lg-7 mx-auto text-center">
 						<h2 className="section-title">Testimonials</h2>

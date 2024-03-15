@@ -1,5 +1,7 @@
 import React from 'react'
 import Images from '../assets/img/imges'
+import BlogSectin from '../componets/BlogSection'
+import Slider from '../componets/slider'
 
 
 
@@ -34,6 +36,11 @@ function Blog() {
 				</div>
 			</div>
     </div>
+	<BlogSectin/>
+	<div className='' style={{marginTop:-150}}>
+	<Slider/>
+	</div>
+	
 	      
       
     </>
